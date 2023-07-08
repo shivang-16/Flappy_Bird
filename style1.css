@@ -1,0 +1,8 @@
+#bird{
+  border: 2px solid blue;
+  height: 200px;
+  width: 300px;
+}
+#obstacle{
+    border: 2px solid red;
+}

@@ -1,0 +1,69 @@
+body{
+  margin: 0;
+  padding: 0;
+  /* height: 1000px; */
+  overflow: hidden;
+}
+main{
+  background-image: url('img/bg4.jpg');
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  margin: auto;
+  position: relative;
+}
+
+#bird{
+    background-image: url('img/bird.gif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 250px;
+    height: 120px;
+    position: absolute;
+    bottom: 320px;
+    left: 450px;
+    display: inline-block;
+}
+/* 
+#obstacle{
+    border: 2px solid rgb(1, 39, 1);
+    display: block;
+    height: 250px;
+    width: 50px;
+    position: absolute;
+    background: linear-gradient(to bottom, rgb(0, 209, 28), rgb(0, 41, 10));
+    right: 0;
+    top: 0;
+} */
+
+.obstacleUP{
+    border: 2px solid rgb(1, 39, 1);
+    width: 50px;
+    position: absolute;
+    background: linear-gradient(to bottom, rgb(0, 209, 28), rgb(0, 41, 10));
+    right: 0;
+    top: 0;
+    animation: obstacleMove 20s linear;
+}
+.obstacleDown{
+    border: 2px solid rgb(1, 39, 1);
+    width: 50px;
+    position: absolute;
+    background: linear-gradient(to bottom, rgb(0, 209, 28), rgb(0, 41, 10));
+    right: 0;
+    bottom: 0;
+    animation: obstacleMove 20s linear;
+    /* display: none; */
+}
+@keyframes obstacleMove {
+    0%{
+        right: 0;
+    }
+    100%{
+        right: 100%;
+    }
+}
+.none{
+    display: none;
+}
+
