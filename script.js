@@ -1,9 +1,11 @@
-let bird = document.getElementById('bird');
+const bird = document.getElementById('bird');
+const obstacle = document.getElementById('obstacle');
+const over = document.getElementById   ('over');
+
 let birdVelocity = { x: 0, y: 0 };
 let birdPosition = 0;
 
-
-//Moving Bird 
+// Moving Bird
 document.addEventListener('keydown', (e) => {
   if (e.code === 'Space') {
     birdVelocity = { x: 0, y: -1 };
@@ -16,19 +18,40 @@ document.addEventListener('keyup', (e) => {
   }
 });
 
+const checkCollision = (bird, obstacle) => {
+  const birdRect = bird.getBoundingClientRect();
+  const obstacleRect = obstacle.getBoundingClientRect();
+
+  return (
+    birdRect.top < obstacleRect.bottom &&
+    birdRect.bottom > obstacleRect.top &&
+    birdRect.right > obstacleRect.left &&
+    birdRect.left < obstacleRect.right
+  );
+  
+};
+
 const updateVelocity = () => {
   birdPosition += birdVelocity.y;
   bird.style.transform = `translateY(${birdPosition}px)`;
-// window.requestAnimationFrame(updateVelocity);
-   setTimeout(updateVelocity, 1); 
+
+  const obstacles = document.querySelectorAll('.obstacleUP, .obstacleDown');
+  obstacles.forEach((obstacle) => {
+
+    if (checkCollision(bird, obstacle, over)) {
+      // Game over logic
+      bird.style.display="none"
+      // obstacle.style.display="none" 
+      over.style.display="block" 
+    }
+  });
+
+  setTimeout(updateVelocity, 0.2 );
 };
 updateVelocity();
 
-
-
-//logic for obstacles
 let a = 150;
-let b = 350;
+let b = 320;
 
 setInterval(() => {
   let obsUP = document.createElement('div');
@@ -43,9 +66,8 @@ setInterval(() => {
   obstacle.appendChild(obsDown);
 
   setTimeout(() => {
-    obsUP.classList.add('none');
-    obsDown.classList.add('none');
-  }, 20000);
-}, 2000);
-
+    obsUP.remove();
+    obsDown.remove();
+  }, 15000);
+}, 3000);
 

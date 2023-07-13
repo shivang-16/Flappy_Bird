@@ -14,46 +14,46 @@ main{
 }
 
 #bird{
-    background-image: url('img/bird.gif');
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 250px;
-    height: 120px;
+
+    width: 150px;
+    height: 100px;
     position: absolute;
     bottom: 320px;
     left: 450px;
     display: inline-block;
+
+
 }
-/* 
-#obstacle{
-    border: 2px solid rgb(1, 39, 1);
-    display: block;
-    height: 250px;
-    width: 50px;
-    position: absolute;
-    background: linear-gradient(to bottom, rgb(0, 209, 28), rgb(0, 41, 10));
-    right: 0;
-    top: 0;
-} */
+#bird>img{
+    height: 110px;
+    width: 170px;
+}
 
 .obstacleUP{
-    border: 2px solid rgb(1, 39, 1);
+    border: 2px solid rgb(0, 45, 0);
+    border-top: none;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     width: 50px;
     position: absolute;
-    background: linear-gradient(to bottom, rgb(0, 209, 28), rgb(0, 41, 10));
+    background: linear-gradient(to bottom,rgb(107, 131, 40), rgb(145, 185, 11), rgb(87, 145, 15));
     right: 0;
     top: 0;
-    animation: obstacleMove 20s linear;
+    box-shadow: 1px 5px 2px rgb(0, 0, 0);
+    animation: obstacleMove 15s linear;
 }
 .obstacleDown{
-    border: 2px solid rgb(1, 39, 1);
+    border: 2px solid rgb(0, 45, 0);
     width: 50px;
     position: absolute;
-    background: linear-gradient(to bottom, rgb(0, 209, 28), rgb(0, 41, 10));
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    background: linear-gradient(to bottom,rgb(69, 142, 32), rgb(156, 206, 4), rgb(69, 142, 32));
     right: 0;
     bottom: 0;
-    animation: obstacleMove 20s linear;
-    /* display: none; */
+    box-shadow: 1px -3px 2px rgb(0, 0, 0);
+    animation: obstacleMove 15s linear;
+
 }
 @keyframes obstacleMove {
     0%{
@@ -63,7 +63,26 @@ main{
         right: 100%;
     }
 }
-.none{
-    display: none;
-}
 
+
+#over{
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    background: linear-gradient(to right, rgb(163, 7, 7), rgb(110, 35, 35));
+    box-shadow: 0px 0px 12px black;
+    color: white;
+    font-size: 25px;
+    display: none;
+
+}
+.heading{
+    left: 50%;
+}
+/* .banner{
+    display: none;
+} */
